@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+$font-playfair: 'Playfair Display', serif;
+$font-lato: 'Lato', sans-serif;
+
+.font-playfair {
+    font: {
+        family: $font-playfair;
+    }
+}
+
+.font-lato {
+    font: {
+        family: $font-lato;
+    }
+}
+
+.headline1 {
+    @extend .font-playfair;
+    font: {
+        size: 35px;
+        weight: bold;
+    }
+    line-height: 48px;
+    letter-spacing: 0.02em;
+}
+
+.subtitle {
+    @extend .font-lato;
+    font: {
+        size: 12px;
+        weight: bold;
+    }
+    line-height: 20px;
+    letter-spacing: 0.01em;
+}
+
+.headline2 {
+    @extend .font-playfair;
+    font: {
+        size: 20px;
+        weight: bold;
+    }
+    line-height: 28px;
+    letter-spacing: 0.01em;
+}
+
+body {
+    @extend .font-lato;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+}
+
+.caption {
+    @extend .font-lato;
+    line-height: 16px;
+    letter-spacing: 0.16em;
+}
+
+nav {
+    a {
+        @extend .font-lato;
+        color: $sky;
+        font: {
+            size: em(12px);
+            weight: bold;
+        }
+        letter-spacing: 0.01em;
+        text-decoration: none;
+    }
+}

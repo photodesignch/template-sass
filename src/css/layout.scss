@@ -1,0 +1,129 @@
+@import 'reset';
+@import 'grid';
+@import 'color';
+@import 'fonts';
+@import 'components';
+
+$header-height: em(64px);
+$hero-heignt: em(904px);
+
+html {
+    background-color: $white;
+}
+body { 
+    @include center();
+    width: em($body-width);
+}
+header {
+    @include col(12);
+    @include center();
+    background-color: $navy;
+    height: $header-height;
+
+    .logo {
+        width: em(100px);
+        height: em(24px);
+        margin-top: ($header-height / 2) - em(24 / 2);
+        border: 1px solid $white;
+        margin-left: 10px;
+        display: inline-block;
+    }
+    
+    nav {
+        text-align: left;
+        float: right;
+        line-height: $header-height;
+
+        a {
+            margin: 0 em(12px) 0 em(12px);
+        }
+    }
+}
+article {
+    position: relative;
+    background: $paper;
+}
+.hero {
+    position: absolute;
+    z-index: -1;
+    top: -($header-height/2);
+    width: $body-width;
+    background-image: url('../assets/bg.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $hero-heignt;
+
+    .heroTextBlock {
+        @include center();
+        width: em(520px);
+        text-align: center;
+        color: $white;
+    }
+    .dia-line {
+        @include line(28px, $coral);
+        margin-bottom: em(32px);
+    }
+    .subtitle {
+        color: $subtitleColor;
+    }
+    button {
+        @include btn($white, $coral, alpha($yellow, 0.5), $coral);
+        margin-top: em(64px);
+    }
+}
+.postIt {
+    @include col(4);
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: -60px;
+}
+.postItContainer {
+    @include col(12);
+    @include center();
+    margin-top: em(856px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    .postItLeft {
+        @extend .postIt;
+        @include textBlock($white, $flagLeftColor, $coral, $yellow);
+        
+        .dia-line {
+            @include line(16px, $white);
+            margin-top: em(80px);
+        }
+    }
+
+    .postItCenter {
+        @extend .postIt;
+        @include textBlock($black, $flagCenterColor, $white, $white);
+
+        .dia-line {
+            @include line(16px, $coral);
+            margin-top: em(80px);
+        }
+    }
+
+    .postItRight {
+        @extend .postIt;
+        @include textBlock($white, $flagRightColor, $navy, $royal_blue);
+
+        .dia-line {
+            @include line(16px, $sky);
+            margin-top: em(80px);
+        }
+    }
+
+}
+footer {
+    background-color: $paper;
+    padding: 5em;
+
+    button {
+        @include btn($royal_blue, $white, alpha($royal_blue, 0.2), alpha($royal_blue, 0.4));
+    }
+}

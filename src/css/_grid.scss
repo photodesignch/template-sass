@@ -1,0 +1,26 @@
+$browser-context: 16; // Default font size 16px = 1em
+$body-width: 1280px;
+$content-width: 1024px;
+$col-width: 56px;
+$gutter: 32px;
+
+@function em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+@mixin col($col, $gap: $gutter, $align: bottom) {
+    width: ($col * $col-width) + ($gap * ($col - 1));
+    vertical-align: $align;
+}
+
+@mixin center() {
+    margin: 0 auto 0 auto;
+}

@@ -1,0 +1,96 @@
+@mixin line($size, $color) {
+    @include center();
+    width: $size;
+    border-bottom: 2px solid $color;
+    -webkit-transform: rotate(-45deg);
+}
+
+@mixin btn($color, $bgcolor, $lncolor, $bdcolor) {
+    @include center();
+    display: flex;
+    color: $color;
+    background-color: $bgcolor;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: -webkit-baseline-middle;
+    line-height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 em(26px) 0 em(32px);
+    border: 2px solid $bdcolor;
+    @extend .caption;
+    font: {
+        size: em(15px);
+        weight: bold;
+    }
+
+    svg {
+        width: 15px;
+        height: 36px;
+        border-left: 1px solid $lncolor;
+        margin-left: em(16px);
+        padding-left: em(16px);
+    }
+}
+
+@mixin textBlock($textColor, $flagColor, $bgColor1, $bgColor2) {
+    .flag {
+        @extend .font-playfair;
+        @include col(1);
+        @include center();
+        display: flex;
+        color: $flagColor;
+        text-align: center;
+        margin-bottom: -em(3px);
+        font: {
+            size: em(160px);
+            weight: bold;
+        }
+        z-index: 3;
+    }
+    .backgroundWrapper {
+        @include col(4);
+        height: em(400px);
+        color: $textColor;
+        display: block;
+        position: relative;
+        margin-top: -1.5em;
+        @include graident($bgColor1 0%,$bgColor2 100%);
+
+        &:after {
+            content: "";
+            background-image: url('../assets/pattern.svg');
+            -webkit-mask-image: url('../assets/pattern.svg');
+            opacity: 0.1;
+            top: 0; left: 0; bottom: 0; right: 0;
+            position: absolute;
+            z-index: 1; 
+        }
+    }
+    .textContent {
+        @include center();
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        width: em(185px);
+        height: em(200px);
+        font: {
+            style: italic;
+        }
+    }
+    .author {
+        @extend .caption;
+        color: $textColor;
+        line-height: em(56px);
+        text-align: center;
+        text-transform: uppercase;
+        font: {
+            size: em(15px);
+            weight: bold;
+        }
+    }
+}

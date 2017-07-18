@@ -1,0 +1,24 @@
+@function alpha($color, $percent) {
+    @return rgba($color, $percent);
+}
+
+@mixin graident($topLeft, $lowRight) {
+    background: -webkit-linear-gradient(-45deg, $topLeft, $lowRight);
+}
+
+/* Accents */
+$royal_blue: #3956BF;
+$navy: #1f2d73;
+$sky: #597dff;
+$coral: #FA8070;
+$yellow: #ffb68c;
+
+/* neutrals */
+$white: #FFFFFF;
+$paper: #f4f5f5;
+$black: #000000;
+
+$flagLeftColor: alpha($yellow,0.8);
+$flagCenterColor: alpha($coral,0.8);
+$flagRightColor: alpha($sky,0.5);
+$subtitleColor: alpha($white, 0.6); 
